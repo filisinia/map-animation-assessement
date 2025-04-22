@@ -1,15 +1,30 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
-@theme inline { 
+@theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-hauora);
   --font-mono: var(--font-hauora);
+
+  --animate-dot-pulse: dot-pulse 1500ms ease-in-out infinite;
+  --animate-flash: flash 600ms ease-in-out infinite;
+
+  @keyframes dot-pulse {
+    50% {
+      opacity: 0.6;
+    }
+  }
+
+  @keyframes flash {
+    50% {
+      opacity: 0.15;
+    }
+  }
 }
 
 @media (prefers-color-scheme: dark) {

@@ -12,3 +12,8 @@ export const dotStatusClasses: Record<DotStatus, DotCircles> = {
     inner: 'bg-red-500',
   },
 };
+
+export const dotAnimationClasses: Record<DotStatus, string> = {
+  active: 'animate-dot-pulse',
+  inactive: 'animate-flash',
+};
