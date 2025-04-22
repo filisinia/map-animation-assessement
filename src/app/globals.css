@@ -6,6 +6,7 @@
 }
 
 @theme inline {
+  --color-primary: #E6E6E6;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-hauora);
