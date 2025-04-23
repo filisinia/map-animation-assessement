@@ -23,7 +23,7 @@ export function AnimationProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const startAnimation = () => {
-      const timers = Array.from({ length: 6 }, (_, i) =>
+      const timers = Array.from({ length: 10 }, (_, i) =>
         setTimeout(() => setCurrentStep(i + 1), (i + 1) * STEP_DELAY)
       );
       return timers;

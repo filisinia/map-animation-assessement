@@ -41,7 +41,7 @@ export const Line: FC<LineProps & ComponentProps<'div'>> = ({
   }, [thickness]);
 
   return (
-    <div className={clsx('absolute inset-0', className)}>
+    <div className={clsx('absolute inset-0 animate-fade-in', className)}>
       {startComponent && (
         <div
           className="absolute z-[1]"

@@ -24,20 +24,20 @@ export default function Home() {
       <Line
         endComponent={
           currentStep >= 1 && (
-            <Dot status={currentStep >= 5 ? 'active' : 'inactive'} animate />
+            <Dot status={currentStep >= 4 ? 'active' : 'inactive'} animate />
           )
         }
         startComponent={
-          currentStep >= 3 && (
-            <Dot status={currentStep >= 6 ? 'active' : 'inactive'} animate />
+          currentStep >= 5 && (
+            <Dot status={currentStep >= 8 ? 'active' : 'inactive'} animate />
           )
         }
         start={{ xPercent: 49.5, yPercent: 61.5 }}
         end={{ xPercent: 91.5, yPercent: 40 }}
       />
 
-      {currentStep >= 2 && <BoardingIssue />}
-      {currentStep >= 4 && <DisembarkingIssue />}
+      <BoardingIssue />
+      <DisembarkingIssue />
     </div>
   );
 }
