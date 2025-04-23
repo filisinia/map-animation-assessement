@@ -11,7 +11,7 @@ type InfoMessageProps = {
 };
 
 export const InfoMessage: FC<InfoMessageProps & PropsWithChildren> = ({
-  type = 'success',
+  type,
   time,
   title,
   timeUnit = 'minutes',
