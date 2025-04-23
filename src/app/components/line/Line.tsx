@@ -1,4 +1,6 @@
-import { FC } from 'react';
+'use client';
+
+import { FC, ComponentProps, ReactNode, useEffect, useState } from 'react';
 import clsx from 'clsx';
 
 type Point = {
@@ -9,55 +11,90 @@ type Point = {
 type LineProps = {
   start: Point;
   end: Point;
+  withDots?: boolean;
   color?: string;
   thickness?: number;
-  dotSize?: number;
-  className?: string;
+  startComponent?: ReactNode;
+  endComponent?: ReactNode;
 };
 
-export const Line: FC<LineProps> = ({
+export const Line: FC<LineProps & ComponentProps<'div'>> = ({
   start,
   end,
+  withDots = true,
   color = '#999999',
   thickness = 3,
-  dotSize = 5,
+  startComponent,
+  endComponent,
   className = '',
 }) => {
+  const [thicknessPercent, setThicknessPercent] = useState(0);
+
+  const getPositionStyles = (xPercent: number, yPercent: number) => ({
+    left: `${xPercent}%`,
+    top: `${yPercent}%`,
+    transform: 'translate(-50%, -50%)',
+  });
+
+  useEffect(() => {
+    setThicknessPercent((thickness / window.innerHeight) * 100);
+  }, [thickness]);
+
   return (
-    <svg
-      className={clsx('absolute', className)}
-      style={{
-        left: 0,
-        top: 0,
-        width: '100%',
-        height: '100%',
-        pointerEvents: 'none',
-      }}
-      aria-hidden="true"
-      role="presentation"
-    >
-      <circle
-        cx={`${start.xPercent}%`}
-        cy={`${start.yPercent}%`}
-        r={dotSize}
-        fill={color}
+    <div className={clsx('absolute inset-0', className)}>
+      {startComponent && (
+        <div
+          className="absolute z-[1]"
+          style={{
+            ...getPositionStyles(start.xPercent, start.yPercent),
+          }}
+        >
+          {startComponent}
+        </div>
+      )}
+
+      {withDots && (
+        <div
+          className="absolute w-3 h-3 rounded-full"
+          style={{
+            ...getPositionStyles(start.xPercent, start.yPercent),
+            backgroundColor: color,
+          }}
+        />
+      )}
+
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundColor: color,
+          clipPath: `polygon(
+           ${start.xPercent}% ${start.yPercent}%,
+           ${end.xPercent}% ${end.yPercent}%,
+           ${end.xPercent}% ${end.yPercent + thicknessPercent}%,
+           ${start.xPercent}% ${start.yPercent + thicknessPercent}%)`,
+        }}
       />
 
-      <line
-        x1={`${start.xPercent}%`}
-        y1={`${start.yPercent}%`}
-        x2={`${end.xPercent}%`}
-        y2={`${end.yPercent}%`}
-        stroke={color}
-        strokeWidth={thickness}
-      />
+      {startComponent && (
+        <div
+          className="absolute z-[1]"
+          style={{
+            ...getPositionStyles(end.xPercent, end.yPercent),
+          }}
+        >
+          {endComponent}
+        </div>
+      )}
 
-      <circle
-        cx={`${end.xPercent}%`}
-        cy={`${end.yPercent}%`}
-        r={dotSize}
-        fill={color}
-      />
-    </svg>
+      {withDots && (
+        <div
+          className="absolute w-3 h-3 rounded-full"
+          style={{
+            ...getPositionStyles(end.xPercent, end.yPercent),
+            backgroundColor: color,
+          }}
+        />
+      )}
+    </div>
   );
 };

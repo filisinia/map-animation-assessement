@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { ComponentProps, FC } from 'react';
 import clsx from 'clsx';
 import {
   dotAnimationClasses,
@@ -11,7 +11,11 @@ type DotProps = {
   animate?: boolean;
 };
 
-export const Dot: FC<DotProps> = ({ status, animate = false }) => {
+export const Dot: FC<DotProps & ComponentProps<'div'>> = ({
+  status,
+  animate = false,
+  className = '',
+}) => {
   const classes = dotStatusClasses[status];
 
   return (
@@ -19,7 +23,8 @@ export const Dot: FC<DotProps> = ({ status, animate = false }) => {
       className={clsx(
         'h-14 w-14 rounded-full p-2.5',
         classes.outer,
-        animate ? dotAnimationClasses[status] : ''
+        animate ? dotAnimationClasses[status] : '',
+        className
       )}
     >
       <div className={clsx('h-full w-full rounded-full p-2', classes.middle)}>

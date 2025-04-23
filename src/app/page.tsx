@@ -1,4 +1,4 @@
-// import { Dot } from '@/components/dot/Dot';
+import { Dot } from '@/components/dot/Dot';
 import { WorldMap } from '@/components/worldMap';
 import { MessageWrapper } from '@/components/messageWrapper';
 import { Line } from '@/components/line';
@@ -14,6 +14,8 @@ export default function Home() {
       </MessageWrapper>
 
       <Line
+        startComponent={<Dot status="inactive" animate />}
+        endComponent={<Dot status="inactive" animate />}
         start={{ xPercent: 49.5, yPercent: 61.5 }}
         end={{ xPercent: 91.5, yPercent: 40 }}
       />

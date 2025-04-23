@@ -13,17 +13,18 @@
   --font-mono: var(--font-hauora);
 
   --animate-dot-pulse: dot-pulse 1500ms ease-in-out infinite;
-  --animate-flash: flash 600ms ease-in-out infinite;
+  --animate-flash: flash 450ms ease-in-out infinite;
 
   @keyframes dot-pulse {
     50% {
+      transform: scale(0.6);
       opacity: 0.6;
     }
   }
 
   @keyframes flash {
     50% {
-      opacity: 0.15;
+      opacity: 0.1
     }
   }
 }

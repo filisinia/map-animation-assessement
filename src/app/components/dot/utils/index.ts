@@ -7,9 +7,9 @@ export const dotStatusClasses: Record<DotStatus, DotCircles> = {
     inner: 'bg-green-500',
   },
   inactive: {
-    outer: 'bg-red-500/20',
-    middle: 'bg-red-500/20',
-    inner: 'bg-red-500',
+    outer: 'bg-red-600/20',
+    middle: 'bg-red-600/20',
+    inner: 'bg-red-600',
   },
 };
 

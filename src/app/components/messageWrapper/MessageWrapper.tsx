@@ -1,11 +1,7 @@
-import { FC, PropsWithChildren } from 'react';
+import { FC, ComponentProps, PropsWithChildren } from 'react';
 import clsx from 'clsx';
 
-type MessageWrapperProps = {
-  className?: string;
-};
-
-export const MessageWrapper: FC<MessageWrapperProps & PropsWithChildren> = ({
+export const MessageWrapper: FC<ComponentProps<'div'> & PropsWithChildren> = ({
   className,
   children,
 }) => {
