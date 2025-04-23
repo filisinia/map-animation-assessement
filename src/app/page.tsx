@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { WorldMap } from '@/components/world-map';
 import { MessageWrapper } from '@/components/message-wrapper';
 import { Line } from '@/components/line';
@@ -8,32 +7,10 @@ import { LineConnectors } from '@/components/line-connectors';
 import { BoardingIssue } from '@/components/boarding-issue';
 import { DisembarkingIssue } from '@/components/disembarking-issue';
 import { Dot } from '@/components/dot/Dot';
+import { useAnimation } from '@/contexts/AnimationContext';
 
 export default function Home() {
-  const [currentStep, setCurrentStep] = useState(0);
-
-  const animationSequence = [
-    <BoardingIssue key="boarding" />,
-    <DisembarkingIssue key="disembarking" />,
-  ];
-
-  useEffect(() => {
-    const initialDelay = 2000;
-
-    const startAnimation = () => {
-      const timers = Array.from({ length: animationSequence.length }, (_, i) =>
-        setTimeout(() => setCurrentStep(i + 1), (i + 1) * 1000)
-      );
-      return timers;
-    };
-
-    const mainTimer = setTimeout(() => {
-      const timers = startAnimation();
-      return () => timers.forEach((timer) => clearTimeout(timer));
-    }, initialDelay);
-
-    return () => clearTimeout(mainTimer);
-  }, [animationSequence.length]);
+  const { currentStep } = useAnimation();
 
   return (
     <div className="w-screen h-screen overflow-hidden relative">
@@ -45,15 +22,22 @@ export default function Home() {
       </MessageWrapper>
 
       <Line
-        endComponent={currentStep >= 0 && <Dot status="inactive" animate />}
-        startComponent={currentStep >= 1 && <Dot status="inactive" animate />}
+        endComponent={
+          currentStep >= 1 && (
+            <Dot status={currentStep >= 5 ? 'active' : 'inactive'} animate />
+          )
+        }
+        startComponent={
+          currentStep >= 3 && (
+            <Dot status={currentStep >= 6 ? 'active' : 'inactive'} animate />
+          )
+        }
         start={{ xPercent: 49.5, yPercent: 61.5 }}
         end={{ xPercent: 91.5, yPercent: 40 }}
       />
 
-      {animationSequence.map(
-        (component, index) => currentStep > index && component
-      )}
+      {currentStep >= 2 && <BoardingIssue />}
+      {currentStep >= 4 && <DisembarkingIssue />}
     </div>
   );
 }

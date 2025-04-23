@@ -21,7 +21,7 @@ export const Dot: FC<DotProps & ComponentProps<'div'>> = ({
   return (
     <div
       className={clsx(
-        'h-14 w-14 rounded-full p-2.5 animate-fade-in',
+        'h-14 w-14 rounded-full p-2.5',
         classes.outer,
         animate ? dotAnimationClasses[status] : '',
         className

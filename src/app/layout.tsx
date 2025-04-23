@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
+import { AnimationProvider } from '@/contexts/AnimationContext';
 import './globals.css';
 
 const hauoraFont = localFont({ src: './fonts/Hauora.woff2' });
@@ -15,7 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${hauoraFont.className} antialiased`}>{children}</body>
+      <body className={`${hauoraFont.className} antialiased`}>
+        <AnimationProvider>{children}</AnimationProvider>
+      </body>
     </html>
   );
 }
