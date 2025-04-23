@@ -1,13 +1,16 @@
 import { Dot } from '@/components/dot/Dot';
-import { WorldMap } from '@/components/worldMap';
-import { MessageWrapper } from '@/components/messageWrapper';
+import { WorldMap } from '@/components/world-map';
+import { MessageWrapper } from '@/components/message-wrapper';
 import { Line } from '@/components/line';
-import { InfoMessage } from '@/components/infoMessage';
+import { InfoMessage } from '@/components/info-message';
+import { LineConnectors } from '@/components/line-connectors';
 
 export default function Home() {
   return (
     <div className="w-screen h-screen overflow-hidden relative">
       <WorldMap />
+
+      <LineConnectors />
 
       <MessageWrapper className="absolute bottom-[345px] left-20 h-20 w-[358px] p-5 text-center justify-center text-3xl font-medium text-red-600">
         Airlines

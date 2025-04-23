@@ -1,7 +1,7 @@
 import { FC, PropsWithChildren } from 'react';
 import clsx from 'clsx';
-import { infoMessageClasses, InfoMessageType } from '@/components/infoMessage';
-import { MessageWrapper } from '@/components/messageWrapper';
+import { infoMessageClasses, InfoMessageType } from '@/components/info-message';
+import { MessageWrapper } from '@/components/message-wrapper';
 
 type InfoMessageProps = {
   type: InfoMessageType;
