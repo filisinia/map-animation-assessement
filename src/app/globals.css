@@ -14,6 +14,7 @@
 
   --animate-dot-pulse: dot-pulse 1500ms ease-in-out infinite;
   --animate-flash: flash 450ms ease-in-out infinite;
+  --animate-fade-in: fade-in 1s ease-in-out;
 
   @keyframes dot-pulse {
     50% {
@@ -25,6 +26,15 @@
   @keyframes flash {
     50% {
       opacity: 0.1
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
     }
   }
 }

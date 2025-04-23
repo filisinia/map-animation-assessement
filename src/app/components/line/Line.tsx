@@ -75,7 +75,7 @@ export const Line: FC<LineProps & ComponentProps<'div'>> = ({
         }}
       />
 
-      {startComponent && (
+      {endComponent && (
         <div
           className="absolute z-[1]"
           style={{
