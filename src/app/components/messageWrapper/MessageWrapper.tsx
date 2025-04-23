@@ -1,0 +1,22 @@
+import { FC, PropsWithChildren } from 'react';
+import clsx from 'clsx';
+
+type MessageWrapperProps = {
+  className?: string;
+};
+
+export const MessageWrapper: FC<MessageWrapperProps & PropsWithChildren> = ({
+  className,
+  children,
+}) => {
+  return (
+    <div
+      className={clsx(
+        'flex flex-col gap-3.5 w-56 border border-gray-500 rounded-md px-2 py-2.5 text-primary backdrop-blur bg-black/5',
+        className
+      )}
+    >
+      {children}
+    </div>
+  );
+};

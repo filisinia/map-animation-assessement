@@ -1,5 +1,6 @@
 import { FC, PropsWithChildren } from 'react';
 import { infoMessageClasses, InfoMessageType } from '@/components/infoMessage';
+import { MessageWrapper } from '@/components/messageWrapper';
 
 type InfoMessageProps = {
   type: InfoMessageType;
@@ -16,7 +17,7 @@ export const InfoMessage: FC<InfoMessageProps & PropsWithChildren> = ({
   children,
 }) => {
   return (
-    <div className="flex flex-col gap-3.5 w-56 border border-gray-500 rounded-md px-2 py-2.5 text-primary">
+    <MessageWrapper>
       <div className="flex justify-between">
         <span className={`text-sm ${infoMessageClasses[type]}`}>
           <strong>{time}</strong> {timeUnit}
@@ -25,6 +26,6 @@ export const InfoMessage: FC<InfoMessageProps & PropsWithChildren> = ({
       </div>
 
       <strong>{children}</strong>
-    </div>
+    </MessageWrapper>
   );
 };
