@@ -1,4 +1,5 @@
 import { FC, PropsWithChildren } from 'react';
+import clsx from 'clsx';
 import { infoMessageClasses, InfoMessageType } from '@/components/infoMessage';
 import { MessageWrapper } from '@/components/messageWrapper';
 
@@ -19,7 +20,7 @@ export const InfoMessage: FC<InfoMessageProps & PropsWithChildren> = ({
   return (
     <MessageWrapper>
       <div className="flex justify-between">
-        <span className={`text-sm ${infoMessageClasses[type]}`}>
+        <span className={clsx('text-sm', infoMessageClasses[type])}>
           <strong>{time}</strong> {timeUnit}
         </span>
         <strong className={infoMessageClasses[type]}>{title}</strong>
