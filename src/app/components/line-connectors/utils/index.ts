@@ -14,11 +14,11 @@ export const lineConnectorsConfig: LineConnector[] = [
   {
     start: { xPercent: 49.5, yPercent: 61.5 },
     end: { xPercent: 65, yPercent: 70 },
-    step: 4,
+    step: 5,
   },
   {
     start: { xPercent: 49.5, yPercent: 61.5 },
     end: { xPercent: 65, yPercent: 77.5 },
-    step: 5,
+    step: 6,
   },
 ];

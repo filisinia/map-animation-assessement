@@ -24,11 +24,11 @@ export default function Home() {
       <Line
         endComponent={
           currentStep >= 1 && (
-            <Dot status={currentStep >= 4 ? 'active' : 'inactive'} animate />
+            <Dot status={currentStep >= 8 ? 'active' : 'inactive'} animate />
           )
         }
         startComponent={
-          currentStep >= 5 && (
+          currentStep >= 4 && (
             <Dot status={currentStep >= 8 ? 'active' : 'inactive'} animate />
           )
         }
