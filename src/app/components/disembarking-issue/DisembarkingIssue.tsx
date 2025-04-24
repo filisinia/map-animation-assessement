@@ -34,7 +34,7 @@ export const DisembarkingIssue = () => {
 
       {currentStep >= 6 && (
         <MessageWrapper className="h-16 font-bold text-sm">
-          <p>
+          <p className={currentStep >= 11 ? 'blur-xs' : ''}>
             Long walks
             <span className="text-primary/60"> to the airport exit</span>
           </p>

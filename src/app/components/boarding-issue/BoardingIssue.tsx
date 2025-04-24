@@ -34,7 +34,7 @@ export const BoardingIssue = () => {
 
       {currentStep >= 3 && (
         <MessageWrapper className="h-16 font-bold">
-          <p>
+          <p className={currentStep >= 8 ? 'blur-xs' : ''}>
             Time consuming <span className="text-primary/60">boarding</span>
           </p>
 
