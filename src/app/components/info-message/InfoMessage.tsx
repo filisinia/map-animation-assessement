@@ -23,7 +23,10 @@ export const InfoMessage: FC<InfoMessageProps & PropsWithChildren> = ({
         <span className={clsx('text-sm', infoMessageClasses[type])}>
           <strong>{time}</strong> {timeUnit}
         </span>
-        <strong className={infoMessageClasses[type]}>{title}</strong>
+
+        <strong className={clsx(type === 'success' && 'text-primary')}>
+          {title}
+        </strong>
       </div>
 
       <strong>{children}</strong>

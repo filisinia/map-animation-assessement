@@ -6,7 +6,7 @@ export const DisembarkingIssue = () => {
   const { currentStep } = useAnimation();
 
   return (
-    <div className="absolute h-[170px] bottom-[20%] right-[8%] w-56 flex flex-col gap-3">
+    <div className="absolute h-[185px] bottom-[20%] right-[8%] w-56 flex flex-col gap-3">
       {currentStep >= 5 && (
         <InfoMessage type="error" time="30-15" title="Airlines">
           Prolonged disembarking

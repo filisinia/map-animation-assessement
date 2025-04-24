@@ -6,7 +6,7 @@
 }
 
 @theme inline {
-  --color-primary: #E6E6E6;
+  --color-primary: #e6e6e6;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-hauora);
@@ -15,6 +15,7 @@
   --animate-dot-pulse: dot-pulse 1500ms ease-in-out infinite;
   --animate-flash: flash 600ms ease-in-out infinite;
   --animate-fade-in: fade-in 1s ease-in-out forwards;
+  --animate-slide-to-left: slide-to-left 500ms ease-in-out forwards;
 
   @keyframes dot-pulse {
     50% {
@@ -35,6 +36,15 @@
     }
     100% {
       opacity: 1;
+    }
+  }
+
+  @keyframes slide-to-left {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
     }
   }
 }

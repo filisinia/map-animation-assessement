@@ -13,7 +13,7 @@ export default function Home() {
   const { currentStep } = useAnimation();
 
   return (
-    <div className="w-screen h-screen overflow-hidden relative">
+    <div className="w-[744px] h-[1000px] overflow-hidden relative">
       <WorldMap />
       <LineConnectors />
 
@@ -32,8 +32,8 @@ export default function Home() {
             <Dot status={currentStep >= 8 ? 'active' : 'inactive'} animate />
           )
         }
-        start={{ xPercent: 49.5, yPercent: 61.5 }}
-        end={{ xPercent: 91.5, yPercent: 40 }}
+        start={{ xPercent: 53, yPercent: 61.5 }}
+        end={{ xPercent: 89, yPercent: 40 }}
       />
 
       <BoardingIssue />

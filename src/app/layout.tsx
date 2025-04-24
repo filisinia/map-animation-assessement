@@ -17,7 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${hauoraFont.className} antialiased`}>
-        <AnimationProvider>{children}</AnimationProvider>
+        <main className="min-h-screen flex justify-center items-center">
+          <AnimationProvider>{children}</AnimationProvider>
+        </main>
       </body>
     </html>
   );
