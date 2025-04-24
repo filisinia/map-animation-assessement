@@ -11,7 +11,8 @@ export const BlackJet = () => {
   const [isAnimated, setIsAnimated] = useState(false);
 
   useEffect(() => {
-    if (currentStep >= ANIMATION_STEP) setIsAnimated(true);
+    const animated = currentStep >= ANIMATION_STEP;
+    setIsAnimated(animated);
   }, [currentStep]);
 
   if (!isAnimated) return null;

@@ -17,7 +17,8 @@ export const BoardingIssue = () => {
   const { type, time, title, text } = useBoardingIssueData(isAnimated);
 
   useEffect(() => {
-    if (currentStep >= ANIMATION_STEP) setIsAnimated(true);
+    const animated = currentStep >= ANIMATION_STEP;
+    setIsAnimated(animated);
   }, [currentStep]);
 
   return (
@@ -34,7 +35,7 @@ export const BoardingIssue = () => {
 
       {currentStep >= 3 && (
         <MessageWrapper className="h-16 font-bold">
-          <p className={currentStep >= 8 ? 'blur-xs' : ''}>
+          <p className={currentStep >= 8 ? 'blur-xs animate-fade-in' : ''}>
             Time consuming <span className="text-primary/60">boarding</span>
           </p>
 

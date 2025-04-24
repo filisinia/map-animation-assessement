@@ -17,7 +17,8 @@ export const DisembarkingIssue = () => {
   const { type, time, title, text } = useDisembarkingIssueData(isAnimated);
 
   useEffect(() => {
-    if (currentStep >= ANIMATION_STEP) setIsAnimated(true);
+    const animated = currentStep >= ANIMATION_STEP;
+    setIsAnimated(animated);
   }, [currentStep]);
 
   return (
@@ -34,7 +35,7 @@ export const DisembarkingIssue = () => {
 
       {currentStep >= 6 && (
         <MessageWrapper className="h-16 font-bold text-sm">
-          <p className={currentStep >= 11 ? 'blur-xs' : ''}>
+          <p className={currentStep >= 11 ? 'blur-xs animate-fade-in' : ''}>
             Long walks
             <span className="text-primary/60"> to the airport exit</span>
           </p>

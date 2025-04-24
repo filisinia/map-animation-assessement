@@ -6,10 +6,11 @@ import { BoardingIssue } from '@/components/boarding-issue';
 import { DisembarkingIssue } from '@/components/disembarking-issue';
 import { Airlines } from '@/components/airlines';
 import { BlackJet } from '@/components/black-jet';
+import { RestartScreen } from '@/components/restart-screen';
 
 export default function Home() {
   return (
-    <div className="relative w-[744px] h-[1000px] overflow-hidden">
+    <section className="relative w-[744px] h-[1000px] overflow-hidden">
       <WorldMap />
 
       <MainLine />
@@ -18,6 +19,8 @@ export default function Home() {
       <BoardingIssue />
       <DisembarkingIssue />
       <BlackJet />
-    </div>
+
+      <RestartScreen />
+    </section>
   );
 }

@@ -22,8 +22,10 @@ export function AnimationProvider({ children }: { children: ReactNode }) {
   const [currentStep, setCurrentStep] = useState(0);
 
   useEffect(() => {
+    if (currentStep !== 0) return;
+
     const startAnimation = () => {
-      const timers = Array.from({ length: 15 }, (_, i) =>
+      const timers = Array.from({ length: 17 }, (_, i) =>
         setTimeout(() => setCurrentStep(i + 1), (i + 1) * STEP_DELAY)
       );
       return timers;
@@ -37,7 +39,7 @@ export function AnimationProvider({ children }: { children: ReactNode }) {
     return () => {
       clearTimeout(mainTimer);
     };
-  }, []);
+  }, [currentStep]);
 
   const resetAnimation = () => {
     setCurrentStep(0);
