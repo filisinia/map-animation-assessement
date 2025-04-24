@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useAnimation } from '@/contexts/AnimationContext';
+import { useBoardingIssueData } from '@/components/boarding-issue';
 import { InfoMessage } from '@/components/info-message';
 import { MessageWrapper } from '@/components/message-wrapper';
-import { TickIcon, useBoardingIssueData } from '@/components/boarding-issue';
+import { TickIcon } from '@/components/icons';
 
 const ANIMATION_STEP = 7;
 
