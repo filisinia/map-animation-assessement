@@ -1,5 +1,5 @@
 import { FC, PropsWithChildren } from 'react';
-import clsx from 'clsx';
+import { twMerge } from 'tailwind-merge';
 import { infoMessageClasses, InfoMessageType } from '@/components/info-message';
 import { MessageWrapper } from '@/components/message-wrapper';
 
@@ -20,11 +20,11 @@ export const InfoMessage: FC<InfoMessageProps & PropsWithChildren> = ({
   return (
     <MessageWrapper>
       <div className="flex justify-between">
-        <span className={clsx('text-sm', infoMessageClasses[type])}>
+        <span className={twMerge('text-sm', infoMessageClasses[type])}>
           <strong>{time}</strong> {timeUnit}
         </span>
 
-        <strong className={clsx(type === 'success' && 'text-primary')}>
+        <strong className={twMerge(type === 'success' && 'text-primary')}>
           {title}
         </strong>
       </div>

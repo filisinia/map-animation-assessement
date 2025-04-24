@@ -17,7 +17,7 @@ export default function Home() {
       <WorldMap />
       <LineConnectors />
 
-      <MessageWrapper className="absolute bottom-[345px] left-20 h-20 w-[358px] p-5 text-center justify-center text-3xl font-medium text-red-600">
+      <MessageWrapper className="absolute bottom-[265px] left-10 h-20 w-[358px] p-5 text-center justify-center text-3xl font-medium text-red-600">
         Airlines
       </MessageWrapper>
 

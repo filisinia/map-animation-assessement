@@ -1,7 +1,7 @@
 'use client';
 
 import { FC, ComponentProps, ReactNode, useEffect, useState } from 'react';
-import clsx from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
 type Point = {
   xPercent: number;
@@ -41,7 +41,7 @@ export const Line: FC<LineProps & ComponentProps<'div'>> = ({
   }, [thickness]);
 
   return (
-    <div className={clsx('absolute inset-0 animate-fade-in', className)}>
+    <div className={twMerge('absolute inset-0 animate-fade-in', className)}>
       {startComponent && (
         <div
           className="absolute z-[1]"

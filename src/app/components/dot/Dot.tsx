@@ -1,5 +1,5 @@
 import { ComponentProps, FC } from 'react';
-import clsx from 'clsx';
+import { twMerge } from 'tailwind-merge';
 import {
   dotAnimationClasses,
   DotStatus,
@@ -20,15 +20,17 @@ export const Dot: FC<DotProps & ComponentProps<'div'>> = ({
 
   return (
     <div
-      className={clsx(
+      className={twMerge(
         'h-14 w-14 rounded-full p-2.5',
         classes.outer,
         animate ? dotAnimationClasses[status] : '',
         className
       )}
     >
-      <div className={clsx('h-full w-full rounded-full p-2', classes.middle)}>
-        <div className={clsx('h-full w-full rounded-full', classes.inner)} />
+      <div
+        className={twMerge('h-full w-full rounded-full p-2', classes.middle)}
+      >
+        <div className={twMerge('h-full w-full rounded-full', classes.inner)} />
       </div>
     </div>
   );
