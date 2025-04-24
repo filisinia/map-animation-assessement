@@ -7,7 +7,7 @@ export const Airlines = () => {
   const { currentStep } = useAnimation();
 
   return (
-    <MessageWrapper className="absolute bottom-[265px] left-10 h-20 w-[358px] justify-center">
+    <MessageWrapper className="absolute bottom-[265px] left-5 h-20 w-[365px] p-3 justify-center">
       {currentStep >= ANIMATION_STEP ? (
         <div className="animate-fade-in">
           <p className="text-xl font-medium">120 minutes</p>

@@ -39,7 +39,7 @@ export const BoardingIssue = () => {
           </p>
 
           {currentStep >= 8 && (
-            <div className="group absolute z-[2] inset-0 p-1 bg-green-500/30 backdrop-blur-sm flex flex-col items-center justify-center gap-2 animate-fade-in">
+            <div className="group absolute z-[2] inset-0 p-1 bg-green-500/30 backdrop-blur-xl flex flex-col items-center justify-center gap-2 animate-fade-in">
               <TickIcon />
               <span className="font-medium">Skip the queue</span>
             </div>

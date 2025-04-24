@@ -8,7 +8,7 @@ export const MessageWrapper: FC<ComponentProps<'div'> & PropsWithChildren> = ({
   return (
     <div
       className={twMerge(
-        'relative flex flex-col justify-center gap-3.5 w-56 border border-gray-500 rounded-md px-2 py-2.5 text-primary bg-black/15 backdrop-blur-sm animate-fade-in overflow-hidden',
+        'relative flex flex-col justify-center gap-2 w-56 border border-gray-500 rounded-md px-2 py-2.5 text-primary bg-black/15 backdrop-blur-sm animate-fade-in overflow-hidden',
         className
       )}
     >

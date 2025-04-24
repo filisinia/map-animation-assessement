@@ -17,7 +17,7 @@ export const BlackJet = () => {
   if (!isAnimated) return null;
 
   return (
-    <MessageWrapper className="absolute z-[5] bottom-[440px] left-[20px] w-[365px] justify-center p-4 animate-slide-to-bottom">
+    <MessageWrapper className="absolute z-[5] bottom-[440px] left-5 w-[365px] justify-center p-4 animate-slide-to-bottom">
       <h2 className="text-3xl text-center font-bold uppercase">Black Jet</h2>
 
       <div>
