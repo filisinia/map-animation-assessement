@@ -1,8 +1,11 @@
+'use client';
+
 import { WorldMap } from '@/components/world-map';
 import { LineConnectors, MainLine } from '@/components/line-connectors';
 import { BoardingIssue } from '@/components/boarding-issue';
 import { DisembarkingIssue } from '@/components/disembarking-issue';
 import { Airlines } from '@/components/airlines';
+import { BlackJet } from '@/components/black-jet';
 
 export default function Home() {
   return (
@@ -14,6 +17,7 @@ export default function Home() {
       <Airlines />
       <BoardingIssue />
       <DisembarkingIssue />
+      <BlackJet />
     </div>
   );
 }

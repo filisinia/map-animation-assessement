@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import { useAnimation } from '@/contexts/AnimationContext';
 import { useDisembarkingIssueData } from '@/components/disembarking-issue';

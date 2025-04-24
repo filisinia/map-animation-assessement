@@ -16,6 +16,7 @@
   --animate-flash: flash 600ms ease-in-out infinite;
   --animate-fade-in: fade-in 1s ease-in-out forwards;
   --animate-slide-to-left: slide-to-left 500ms ease-in-out forwards;
+  --animate-slide-to-bottom: slide-to-bottom 1500ms ease-in-out forwards;
 
   @keyframes dot-pulse {
     50% {
@@ -45,6 +46,15 @@
     }
     100% {
       transform: translateX(-100%);
+    }
+  }
+
+  @keyframes slide-to-bottom {
+    0% {
+      transform: translateY(-200%);
+    }
+    100% {
+      transform: translateY(0%);
     }
   }
 }
