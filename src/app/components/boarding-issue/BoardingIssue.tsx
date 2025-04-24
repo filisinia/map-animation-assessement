@@ -1,29 +1,29 @@
+import { useEffect, useState } from 'react';
+import { useAnimation } from '@/contexts/AnimationContext';
 import { InfoMessage } from '@/components/info-message';
 import { MessageWrapper } from '@/components/message-wrapper';
-import { useAnimation } from '@/contexts/AnimationContext';
-import { TickIcon } from './TickIcon';
+import { TickIcon, useBoardingIssueData } from '@/components/boarding-issue';
+
+const ANIMATION_STEP = 7;
 
 export const BoardingIssue = () => {
   const { currentStep } = useAnimation();
 
+  const [isAnimated, setIsAnimated] = useState(false);
+
+  const { type, time, title, text } = useBoardingIssueData(isAnimated);
+
+  useEffect(() => {
+    if (currentStep >= ANIMATION_STEP) setIsAnimated(true);
+  }, [currentStep]);
+
   return (
     <div className="absolute h-[185px] bottom-[69%] right-[15%] w-56 flex flex-col gap-3">
       {currentStep >= 2 && (
-        <InfoMessage
-          type={currentStep >= 7 ? 'success' : 'error'}
-          time={currentStep >= 7 ? '15' : '105-75'}
-          title={currentStep >= 7 ? 'BLACK JET' : 'Airlines'}
-        >
-          {currentStep >= 7 ? (
-            'Private terminal boarding'
-          ) : (
-            <>
-              Congested terminals <span className="text-primary/60">and </span>
-              drawn-out security lines
-            </>
-          )}
+        <InfoMessage type={type} time={time} title={title}>
+          {text}
 
-          {currentStep >= 7 && (
+          {isAnimated && (
             <div className="absolute inset-0 bg-green-500 animate-slide-to-left" />
           )}
         </InfoMessage>
